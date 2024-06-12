@@ -1,15 +1,15 @@
 # C-SDL1.2 Project Environment
 
-**A simple template for starting a complex C-SDL1.2 project.**
+**A simple template for starting a C-SDL1.2 project.**
 
 ## Overview
 
-This template provides a basic structure for starting a complex C-SDL1.2 project. It includes essential directories and files to help you organize your code and easily get started with development using the **CMake** to generate a build system including the **Makefile/build.ninja**.
+This template provides a basic structure for starting a C-SDL1.2 project. It includes essential directories and files to help you organize your code and easily get started with development using the **CMake** to generate a build system including the **Makefile/build.ninja**.
 
 ## Project Structure
 
 ```plaintext
-.C-SDL1.2 Project Environment
+.C-SDL1.2_Project_Environment
 ├── bin
 │   ├── build
 │   │   └── build
@@ -19,7 +19,7 @@ This template provides a basic structure for starting a complex C-SDL1.2 project
 │   │   └── release
 │   └── test
 │       └── test
-├── C-SDL1.2 Project Environment.code-workspace
+├── C-SDL1.2_Project_Environment.code-workspace
 ├── doc
 │   ├── pdf
 │   │   └── NONE.pdf
