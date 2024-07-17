@@ -27,6 +27,11 @@ const SDL_Color WHITE = {255, 255, 255, 0};
 const SDL_Color BLACK = {0, 0, 0, 0};
 
 //? ----------------------- FUNCTIONS PROTOTYPE DEV PART -----------------------
+
+/**
+ * @brief ### Initialisation SDL1.2 environment
+ *
+ */
 void initEverything() {
   //* SDL initialisation process
   if (SDL_Init(SDL_INIT_EVERYTHING)) {
@@ -53,6 +58,10 @@ void initEverything() {
   SDL_WM_SetCaption("Hollow Vessels", NULL);
 }
 
+/**
+ * @brief ### Close SDL1.2 resources in exit action
+ *
+ */
 void closeEverything() {
   atexit(Mix_Quit);
   atexit(IMG_Quit);
@@ -60,6 +69,12 @@ void closeEverything() {
   atexit(SDL_Quit);
 }
 
+/**
+ * @brief ### Optimizing the img process :: creat a new 32 bit img
+ *
+ * @param path
+ * @return SDL_Surface*
+ */
 SDL_Surface *load_img(char *path) {
   SDL_Surface *loadedImg = IMG_Load(path),
               *optimizedImg = NULL;
@@ -70,6 +85,15 @@ SDL_Surface *load_img(char *path) {
   return optimizedImg;
 }
 
+/**
+ * @brief ### Set the screen window mode
+ * *
+ * - x(0) - The screen will be in Windowed Mode
+ * *
+ * - x(SDL_FULLSCREEN) - The screen will be in Fullscreen Mode
+ *
+ * @param x
+ */
 void setScreen(int x) {
   const SDL_VideoInfo *Video_Info = SDL_GetVideoInfo();
   if (Video_Info)
@@ -83,6 +107,14 @@ void setScreen(int x) {
 }
 
 //? ----------------------- LOAD && FREEING FUNCTIONS DEV PART -----------------------
+
+/**
+ * @brief ### Set all (Sint16 x, Sint16 y) surfaces pos from a file
+ *
+ * @param sub
+ * @param path
+ * @param nb_res
+ */
 void set_pos(surface *sub, char *path, int nb_res) {
   //* open the settings file
   FILE *file = fopen(path, "r");
@@ -100,6 +132,14 @@ void set_pos(surface *sub, char *path, int nb_res) {
   fclose(file);
 }
 
+/**
+ * @brief ### Load all resources
+ *
+ * @param sub
+ * @param path
+ * @param begin_res
+ * @param nbr_res
+ */
 void loadResources(surface *sub, char *path, int begin_res, int nbr_res) {
   while (begin_res < nbr_res) {
     char tmp_path[260];
@@ -109,6 +149,14 @@ void loadResources(surface *sub, char *path, int begin_res, int nbr_res) {
   }
 }
 
+/**
+ * @brief ### Free All Resources (range 0 to nbr_res - 1)
+ * 
+ * @param sub 
+ * @param font 
+ * @param pip 
+ * @param nb_res 
+ */
 void freeResources(surface *sub, TTF_Font *font, Mix_Chunk *pip, int nb_res) {
   for (int i = 0; i < nb_res; i++)
     SDL_FreeSurface(sub[i].win);

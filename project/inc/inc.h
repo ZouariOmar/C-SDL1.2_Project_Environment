@@ -55,47 +55,23 @@ typedef struct Surface {
 } surface;
 
 //? -------------------- FUNCTIONS PROTOTYPE DECLARATION PART --------------------
-/*
-? --- initEverything() void func ---
-* initialisation SDL1.2 environment
-*/
+
 void initEverything();
 
-/*
-? setScreen(int) void func
-* x : 0               :: the screen will be in Windowed Mode
-* x : SDL_FULLSCREEN  :: the screen will be in Fullscreen Mode
-*/
 void setScreen(int);
 
-/*
-? --- load_img(char *) SDL_Surface* ---
-* optimizing the img process :: creat a new 32 bit img
-*/
 SDL_Surface *load_img(char *);
 
-/*
-? closeEverything() void func
-* close SDL1.2 resources in exit action
-*/
 void closeEverything();
 
 /* ---------------------------------------------
 ? --- LOAD && FREEING FUNCS DECLARATION PART ---
 ------------------------------------------------*/
-/*
-? set_pos(surface *, char *, int) void fn
-* set all (Sint16 x, Sint16 y) surfaces pos
-*/
+
 void set_pos(surface *, char *, int);
 
-/*
-? loadResources(surface* sub, char* path, int f_res, int l_res) void fun
-* load all resources
-*/
 void loadResources(surface *, char *, int, int);
 
-//? freeResources(surface*) void fun
 void freeResources(surface *, TTF_Font *, Mix_Chunk *, int);
 
 #endif
